@@ -1,28 +1,30 @@
 import SwiftUI
 import Shared
+import SearchUi
+import KMPObservableViewModelCore
+import CoreNavigation
+import DetailsUi
 
 struct ContentView: View {
-    @State private var showContent = false
-    var body: some View {
-        VStack {
-            Button("Click me!") {
-                withAnimation {
-                    showContent = !showContent
-                }
-            }
 
-            if showContent {
-                VStack(spacing: 16) {
-                    Image(systemName: "swift")
-                        .font(.system(size: 200))
-                        .foregroundColor(.accentColor)
-                    Text("SwiftUI: \(Greeting().greet())")
+    @StateObject private var router: AppRouter = AppRouter()
+
+    var body: some View {
+
+        NavigationStack(path: $router.path) {
+            SearchView(action: { movieId in
+                router.navigate(to: AppDestination.details(movieId: movieId))
+            })
+            .navigationDestination(for: AppDestination.self) { destination in
+
+                switch destination {
+                case .search: EmptyView()
+                case .details(movieId: let movieId): MovieDetailsView(movieId: movieId)
+
                 }
-                .transition(.move(edge: .top).combined(with: .opacity))
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .padding()
+        .environmentObject(router)
     }
 }
 
