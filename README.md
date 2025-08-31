@@ -1,19 +1,66 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# 🎬 Kotlin Multiplatform Movie Search App
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+This repository contains the source code for my YouTube tutorial on  
+📺 **Kotlin Multiplatform Modularization with a Movie Search App**  
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+The app demonstrates how to build a **multi-module KMP project** with **Clean Architecture (MVVM)**.  
+It includes **feature modules**, **core modules**, and platform-specific navigation while sharing logic across Android and iOS.
 
-* [/shared](./shared/src) is for the code that will be shared between all targets in the project.
-  The most important subfolder is [commonMain](./shared/src/commonMain/kotlin). If preferred, you can add code to the platform-specific folders here too.
+---
+
+## 🚀 Key Highlights
+
+- 🧩 **Multi-Module Architecture** – Feature-based + Core modules  
+- 🏗 **Clean Architecture + MVVM** – Each feature has `data`, `domain`, and `ui` layers  
+- 🌍 **Kotlin Multiplatform** – Shared business logic for Android & iOS  
+- 🔗 **Ktor Client** – Networking layer for fetching movie data  
+- ⚙️ **Koin** – Dependency Injection across modules  
+- 🎨 **Jetpack Compose (Android)** + **SwiftUI (iOS)**  
+- 📦 **Core Modules** – `coreNetwork`, `coreNavigation`  
+- 📱 **Platform-Specific Navigation**  
+  - Android → handled inside `composeApp`  
+  - iOS → handled inside `coreNavigation` (within `iosApp`)  
+
+---
+
+## 📂 Project Structure
+```
+shared/
+ ├── core-network/               # Ktor client setup, networking layer
+ ├── features/
+ │    ├── search/
+ │    │    ├── data/             # Repository, DTOs, API calls for searching movies
+ │    │    ├── domain/           # UseCases, domain models for search
+ │    │    └── ui/               # Compose Multiplatform UI & ViewModels for search
+ │    └── details/
+ │         ├── data/             # Repository, DTOs, API calls for movie details
+ │         ├── domain/           # UseCases, domain models for details
+ │         └── ui/               # Compose Multiplatform UI & ViewModels for details
+composeApp/                      # Android App entry point & Jetpack Compose Navigation
+iosApp/
+ ├── CoreNavigation/              # iOS Navigation handling
+ └── Features/
+     ├── SearchUI/                # iOS Search UI
+     └── DetailsUI/               # iOS Details UI
+```
 
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+
+ ## 🛠️ Tech Stack
+
+- **Kotlin Multiplatform (KMP)**
+- **Clean Architecture + MVVM**
+- **Multi-Module Project Structure**
+- **Ktor Client** – REST API calls
+- **Koin DI** – Dependency Injection
+- **Coroutines + Flow**
+- **Jetpack Compose (Android UI)**
+- **SwiftUI (iOS UI)**
+
+---
+
+
+## 🎬 Watch the Demo Video
+
+[![Watch the video](https://youtu.be/xbF6nTpltXw)
+
