@@ -6,11 +6,24 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7D19F2FB2E60FB13009DD008 /* CoreNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 7D19F2FA2E60FB13009DD008 /* CoreNavigation */; };
+		7DA4ECA22E5F9E680069949A /* DetailsUi in Frameworks */ = {isa = PBXBuildFile; productRef = 7DA4ECA12E5F9E680069949A /* DetailsUi */; };
+		7DA4ECA42E5F9E6E0069949A /* SearchUi in Frameworks */ = {isa = PBXBuildFile; productRef = 7DA4ECA32E5F9E6E0069949A /* SearchUi */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B9DA97B12DC1472C00A4DA20 /* MovieSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7D19F2F92E60FA5D009DD008 /* Exceptions for "CoreNavigation" folder in "iosApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CoreNavigation/CoreNavigation,
+			);
+			target = B9DA97B02DC1472C00A4DA20 /* iosApp */;
+		};
 		B99700CA2DC9B8D800C7335B /* Exceptions for "iosApp" folder in "iosApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -21,6 +34,19 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		7D19F2F72E60FA56009DD008 /* CoreNavigation */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7D19F2F92E60FA5D009DD008 /* Exceptions for "CoreNavigation" folder in "iosApp" target */,
+			);
+			path = CoreNavigation;
+			sourceTree = "<group>";
+		};
+		7DA4EC9D2E5F9E1C0069949A /* Features */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Features;
+			sourceTree = "<group>";
+		};
 		B9DA97B32DC1472C00A4DA20 /* iosApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -41,17 +67,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DA4ECA42E5F9E6E0069949A /* SearchUi in Frameworks */,
+				7DA4ECA22E5F9E680069949A /* DetailsUi in Frameworks */,
+				7D19F2FB2E60FB13009DD008 /* CoreNavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D650C872E5F8BFB00CCEFDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B9DA97A82DC1472C00A4DA20 = {
 			isa = PBXGroup;
 			children = (
+				7D19F2F72E60FA56009DD008 /* CoreNavigation */,
+				7DA4EC9D2E5F9E1C0069949A /* Features */,
 				B9DA98002DC14AA900A4DA20 /* Configuration */,
 				B9DA97B32DC1472C00A4DA20 /* iosApp */,
+				7D650C872E5F8BFB00CCEFDF /* Frameworks */,
 				B9DA97B22DC1472C00A4DA20 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,10 +120,15 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				7D19F2F72E60FA56009DD008 /* CoreNavigation */,
+				7DA4EC9D2E5F9E1C0069949A /* Features */,
 				B9DA97B32DC1472C00A4DA20 /* iosApp */,
 			);
 			name = iosApp;
 			packageProductDependencies = (
+				7DA4ECA12E5F9E680069949A /* DetailsUi */,
+				7DA4ECA32E5F9E6E0069949A /* SearchUi */,
+				7D19F2FA2E60FB13009DD008 /* CoreNavigation */,
 			);
 			productName = iosApp;
 			productReference = B9DA97B12DC1472C00A4DA20 /* MovieSearchApp.app */;
@@ -374,6 +418,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7D19F2FA2E60FB13009DD008 /* CoreNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreNavigation;
+		};
+		7DA4ECA12E5F9E680069949A /* DetailsUi */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DetailsUi;
+		};
+		7DA4ECA32E5F9E6E0069949A /* SearchUi */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SearchUi;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B9DA97A92DC1472C00A4DA20 /* Project object */;
 }

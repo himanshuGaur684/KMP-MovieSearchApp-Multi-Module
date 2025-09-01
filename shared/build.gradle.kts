@@ -13,7 +13,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -21,16 +21,46 @@ kotlin {
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "Shared"
+
+            export(project(":core-network"))
+            export(project(":features:search:data"))
+            export(project(":features:search:domain"))
+            export(project(":features:search:ui"))
+            export(project(":features:details:data"))
+            export(project(":features:details:domain"))
+            export(project(":features:details:ui"))
+
             isStatic = true
         }
     }
-    
+
     sourceSets {
+        androidMain.dependencies {
+
+        }
         commonMain.dependencies {
+
+            api(projects.coreNetwork)
+
+            api(projects.features.search.data)
+            api(projects.features.search.domain)
+            api(projects.features.search.ui)
+
+            api(projects.features.details.ui)
+            api(projects.features.details.domain)
+            api(projects.features.details.data)
+
+
+            implementation(libs.koin.core)
+
             // put your Multiplatform dependencies here
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+
+        iosMain.dependencies {
+
         }
     }
 }
